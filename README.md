@@ -2,8 +2,9 @@
 
 Group Members:
 
-*
-*
-*
+* Jesus Javier Biurrun Bandala
+* Ngoc Nguyen
+* Hendrickson Joewono
+* Yusuf Romadhon
 
 Topic: 
