@@ -1,0 +1,17 @@
+---
+title: "watersword"
+format: html
+editor: visual
+---
+
+## Quarto
+
+```{r library}
+library(tidyverse)
+```
+
+
+```{r load-data}
+population_projection <- read_csv("data/population_projection.csv")
+```
+
