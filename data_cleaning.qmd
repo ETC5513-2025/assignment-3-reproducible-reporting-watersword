@@ -3,6 +3,7 @@ title: "Untitled"
 format: html
 editor: visual
 ---
+
 ```{r}
 library(tidyverse)
 ```
@@ -26,7 +27,7 @@ processed_data <- processed_data |>
     SEX_ABS, AGE, FERTILITY, MORTALITY, FREQUENCY, 
     Frequency, 'Time Period', UNIT_MEASURE, `Unit of Measure`, 
     OBS_STATUS, `Observation Status`, OBS_COMMENT, 
-    `Observation Comment`, `Observation Value`, Age, Sex))
+    `Observation Comment`, `Observation Value`, Age))
 ```
 
 ```{r}
@@ -56,4 +57,3 @@ processed_data <- processed_data |>
     Interstate_Migration = 'Net interstate migration',
     Projected_Popuation = OBS_VALUE)
 ```
-
