@@ -4,14 +4,173 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-```{r library}
+```{r libraries, eval = TRUE, message = FALSE, warning = FALSE}
 library(tidyverse)
+library(scales)
 ```
 
+### Data Cleaning
 
-```{r load-data}
+```{r load-data, message = FALSE, warning = FALSE}
 population_projection <- read_csv("data/population_projection.csv")
 ```
 
+```{r eval=FALSE, echo=FALSE}
+#analyse raw dataset
+glimpse(population_projection)
+```
+
+```{r echo=FALSE}
+#filter only to all ages
+processed_data <- population_projection |>
+  filter(Age == "All ages")
+```
+
+```{r echo=FALSE}
+#remove unnecessary columns
+processed_data <- processed_data |> 
+  select(-c(
+    REGION, STRUCTURE, STRUCTURE_ID, STRUCTURE_NAME, ACTION,
+    SEX_ABS, AGE, FERTILITY, MORTALITY, FREQUENCY, 
+    Frequency, 'Time Period', UNIT_MEASURE, `Unit of Measure`, 
+    OBS_STATUS, `Observation Status`, OBS_COMMENT, 
+    `Observation Comment`, `Observation Value`, Age))
+```
+
+```{r eval=FALSE, echo=FALSE}
+#check what are the distinct regions
+processed_data |> select(Region) |> distinct()
+```
+
+```{r echo=FALSE}
+#change to uppercase for better formatting
+processed_data <- processed_data |>
+  mutate(Region = str_to_upper(Region))
+```
+
+```{r eval=FALSE, echo=FALSE}
+#check column names
+glimpse(processed_data)
+```
+
+```{r echo=FALSE}
+#rename column names for better formatting
+processed_data <- processed_data |>
+  rename(
+    Year = TIME_PERIOD,
+    Fertility_Assumption = 'Fertility Assumption',
+    Mortality_Assumption = 'Mortality Assumption',
+    Overseas_Migration = 'Net Overseas Migration',
+    Interstate_Migration = 'Net interstate migration',
+    Projected_Popuation = OBS_VALUE)
+```
+### Methodology
+
+#### Q1. How is Australia's total population projected to change over the years?
+
+##### Filtering the dataset
+
+Filter all demographic variables to "medium" to get a balanced projection, this is the standard benchmark used by policymakers and planners.
+
+```{r}
+total_projection <- processed_data |>
+  filter(
+    Fertility_Assumption == "Medium fertility",
+    Mortality_Assumption == "Medium life expectancy",
+    Overseas_Migration == "Medium NOM",
+    Interstate_Migration == "Medium interstate flows") |>
+  group_by(Year) |>
+  summarise(Projected_Population = sum(Projected_Popuation, na.rm = TRUE)) |>
+  arrange(Year) |>
+  mutate(
+    Growth_Rate = (Projected_Population / lag(Projected_Population) - 1) * 100
+  )
+```
+
+#### Create year-to-year population projection line chart.
+
+```{r figure-1}
+#| label: fig-total-projection
+#| fig-cap: "Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Population is projected to rise to over 40 million by the year 2066 indicating steady long-term growth."
+#| fig-width: 7
+#| fig-height: 4
+
+ggplot(total_projection, aes(x = Year, y = Projected_Population)) +
+  geom_line(color = "steelblue", linewidth = 1.2) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title = "Projected Population of Australia Over Time (Medium Assumptions)",
+    x = "Year",
+    y = "Population"
+  ) +
+  theme_minimal()
+
+
+```
+
+@fig-total-projection
+
+##### Create year-to-year population projected growth rate line chart.
+
+```{r figure-2}
+#| label: fig-growth-chart
+#| fig-cap: "Projected annual population growth rate of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Growth rate is projected to decline to below 1% by 2066."
+#| fig-width: 7
+#| fig-height: 4
+#| warning: FALSE
+
+ggplot(total_projection, aes(x = Year, y = Growth_Rate)) +
+  geom_line(color = "darkred", linewidth = 1.2) +
+  labs(
+    title = "Year-to-Year Population Growth Rate (Australia, Medium Assumptions)",
+    x = "Year",
+    y = "Growth Rate (%)"
+  ) +
+  scale_y_continuous(limits = c(0, 2)) +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+
+```
+@fig-growth-chart
+
+#### Q2. How is the total population projected to grow across different states and territories over time?
+
+##### Filtering the dataset
+```{r}
+regional_projection <- processed_data |>
+  filter(
+    Fertility_Assumption == "Medium fertility",
+    Mortality_Assumption == "Medium life expectancy",
+    Overseas_Migration == "Medium NOM",
+    Interstate_Migration == "Medium interstate flows"
+  ) |>
+  group_by(Year, Region) |>
+  summarise(Projected_Population = sum(Projected_Popuation, na.rm = TRUE), .groups = "drop") |>
+  group_by(Region)
+```
+
+##### Create year-to-year indexed multi-line chart, each line represents a state or territory.
+
+```{r figure-3}
+#| label: fig-regional-chart
+#| fig-cap: "Indexed population growth in Australia by region from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Each region’s population is set to 100 in 2017 to compare relative growth."
+#| fig-width: 7
+#| fig-height: 4
+#| warning: FALSE
+
+regional_indexed <- regional_projection |>
+  group_by(Region) |>
+  mutate(
+    Index = Projected_Population / first(Projected_Population) * 100
+  )
+
+ggplot(regional_indexed, aes(x = Year, y = Index, color = Region)) +
+  geom_line(linewidth = 1) +
+  labs(
+    title = "Indexed Population Growth by Region (Medium Assumptions)",
+    x = "Year",
+    y = "Index (2017 = 100)"
+  ) + theme_minimal()
+```
+
+@fig-regional-chart
