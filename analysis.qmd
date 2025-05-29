@@ -2,16 +2,254 @@
 title: "watersword"
 format: html
 editor: visual
+execute: 
+  warning: false
+  message: false
+  echo: false
 ---
-
-## Quarto
 
 ```{r library}
 library(tidyverse)
 ```
 
-
 ```{r load-data}
 population_projection <- read_csv("data/population_projection.csv")
 ```
+
+```{r}
+#filter only to all ages
+processed_data <- population_projection |>
+  filter(Age == "All ages")
+```
+
+```{r}
+#remove unnecessary columns
+processed_data <- processed_data |> 
+  select(-c(
+    REGION, STRUCTURE, STRUCTURE_ID, STRUCTURE_NAME, ACTION,
+    SEX_ABS, AGE, FERTILITY, MORTALITY, FREQUENCY, 
+    Frequency, 'Time Period', UNIT_MEASURE, `Unit of Measure`, 
+    OBS_STATUS, `Observation Status`, OBS_COMMENT, 
+    `Observation Comment`, `Observation Value`, Age))
+```
+
+```{r}
+#change to uppercase for better formatting
+processed_data <- processed_data |>
+  mutate(Region = str_to_upper(Region))
+```
+
+```{r}
+#rename column names for better formatting
+processed_data <- processed_data |>
+  rename(
+    Year = TIME_PERIOD,
+    Fertility_Assumption = 'Fertility Assumption',
+    Mortality_Assumption = 'Mortality Assumption',
+    Overseas_Migration = 'Net Overseas Migration',
+    Interstate_Migration = 'Net interstate migration',
+    Projected_Popuation = OBS_VALUE)
+```
+
+## Methodology {#sec-method}
+
+The methodology used in this population projection analysis can be seen in the @fig-methodology below:
+
+```{r}
+#| label: fig-methodology
+#| fig-cap: "Project Analysis Methodology."
+knitr::include_graphics("figures/methodology.png")
+```
+
+Based on @fig-methodology, the population projection analysis follows a clear, step-by-step framework that connects problem definition to results and recommendations. It begins with identifying the key issue: understanding how Australia’s population will change over time under different scenarios. The study recognises that future population levels are influenced by varying rates of fertility, mortality, and migration.
+
+The second step defines the data source and tools used. The analysis is based on the ABS Population Projections dataset from 2017 to 2066. The data includes regional breakdowns, assumption categories, and annual population figures. Tools such as R and libraries like tidyverse are used for cleaning, aggregation, and visualisation.
+
+The core analysis is guided by three research questions: How will Australia’s overall population grow? How will population trends differ across states and territories? How do different demographic assumptions impact these projections? Each of these questions forms a track of analysis.
+
+Results are presented using appropriate charts. National growth over time is visualised with a line chart, showing how population changes annually. State-level comparisons are made with a multi-line chart, allowing direct comparisons between regions. For scenario-based comparisons, a grouped bar chart is used. This chart compares the average population in three periods—Start (2017–2033), Middle (2034–2050), and End (2051–2066)—under three different assumptions: Low, Medium, and High. The scenarios are defined based on combinations of fertility rates, life expectancy, and migration levels.
+
+Finally, the process leads to a conclusion and recommendation section, where key findings are summarised, and implications for planning are discussed. This method ensures a logical flow from question to insight, and allows clear interpretation of complex projection data for policymakers and planners.
+
+## Results {#sec-results}
+
+#### Q1. How is Australia's total population projected to change over the years?
+
+##### Filtering the dataset
+
+Filter all demographic variables to "medium" to get a balanced projection, this is the standard benchmark used by policymakers and planners.
+
+```{r}
+total_projection <- processed_data |>
+  filter(
+    Fertility_Assumption == "Medium fertility",
+    Mortality_Assumption == "Medium life expectancy",
+    Overseas_Migration == "Medium NOM",
+    Interstate_Migration == "Medium interstate flows") |>
+  group_by(Year) |>
+  summarise(Projected_Population = sum(Projected_Popuation, na.rm = TRUE)) |>
+  arrange(Year) |>
+  mutate(
+    Growth_Rate = (Projected_Population / lag(Projected_Population) - 1) * 100
+  )
+```
+
+#### Create year-to-year population projection line chart.
+
+```{r figure-2}
+#| label: fig-total-projection
+#| fig-cap: "Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Population is projected to rise to over 40 million by the year 2066 indicating steady long-term growth."
+#| fig-width: 7
+#| fig-height: 4
+
+ggplot(total_projection, aes(x = Year, y = Projected_Population)) +
+  geom_line(color = "steelblue", linewidth = 1.2) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    title = "Projected Population of Australia Over Time (Medium Assumptions)",
+    x = "Year",
+    y = "Population"
+  ) +
+  theme_minimal()
+
+
+```
+
+@fig-total-projection shows that national population growth was assessed over time. The results showed a steady upward trend, with the population increasing consistently each year, reflecting sustained growth at the national level. In addition, the highlight from that chart is the projected population to rise to over 40 million by the year 2066 indicating steady long-term growth.
+
+##### Create year-to-year population projected growth rate line chart.
+
+```{r figure-3}
+#| label: fig-growth-chart
+#| fig-cap: "Projected annual population growth rate of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Growth rate is projected to decline to below 1% by 2066."
+#| fig-width: 7
+#| fig-height: 4
+#| warning: FALSE
+
+ggplot(total_projection, aes(x = Year, y = Growth_Rate)) +
+  geom_line(color = "darkred", linewidth = 1.2) +
+  labs(
+    title = "Year-to-Year Population Growth Rate (Australia, Medium Assumptions)",
+    x = "Year",
+    y = "Growth Rate (%)"
+  ) +
+  scale_y_continuous(limits = c(0, 2)) +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+
+```
+
+@fig-growth-chart shows that the growth rate will decline to below 1% by 2066.
+
+#### Q2. How is the total population projected to grow across different states and territories over time?
+
+##### Filtering the dataset
+
+```{r}
+regional_projection <- processed_data |>
+  filter(
+    Fertility_Assumption == "Medium fertility",
+    Mortality_Assumption == "Medium life expectancy",
+    Overseas_Migration == "Medium NOM",
+    Interstate_Migration == "Medium interstate flows"
+  ) |>
+  group_by(Year, Region) |>
+  summarise(Projected_Population = sum(Projected_Popuation, na.rm = TRUE), .groups = "drop") |>
+  group_by(Region)
+```
+
+##### Create year-to-year indexed multi-line chart, each line represents a state or territory.
+
+```{r figure-4}
+#| label: fig-regional-chart
+#| fig-cap: "Indexed population growth in Australia by region from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Each region’s population is set to 100 in 2017 to compare relative growth."
+#| fig-width: 7
+#| fig-height: 4
+#| warning: FALSE
+
+regional_indexed <- regional_projection |>
+  group_by(Region) |>
+  mutate(
+    Index = Projected_Population / first(Projected_Population) * 100
+  )
+
+ggplot(regional_indexed, aes(x = Year, y = Index, color = Region)) +
+  geom_line(linewidth = 1) +
+  labs(
+    title = "Indexed Population Growth by Region (Medium Assumptions)",
+    x = "Year",
+    y = "Index (2017 = 100)"
+  ) + theme_minimal()
+```
+
+@fig-regional-chart shows that growth patterns across states and territories revealed apparent differences. While all regions are projected to grow, the most rapid increases are expected in populous states like Victoria, New South Wales, and Queensland. Smaller states such as Tasmania and South Australia show slower growth. These regional differences suggest varying levels of infrastructure and service needs across the country.
+
+### Q3. How do different assumptions (fertility, mortality, migration) influence these projections?
+
+```{r figure-5}
+#| label: fig-assumption-scenario
+#| fig-cap: "Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. The High scenario consistently projects the largest population, driven by higher fertility and migration, while the Low scenario shows slower growth due to reduced births and zero net migration."
+#| fig-width: 7
+#| fig-height: 4
+
+
+# Define scenario categories based on assumption combinations
+q3 <- processed_data |>
+  mutate(
+    Scenario_Category = case_when(
+      Fertility_Assumption == "High fertility" &
+        Mortality_Assumption == "High life expectancy" &
+        Overseas_Migration == "High NOM" ~ "High Scenario",
+
+      Fertility_Assumption == "Medium fertility" &
+        Mortality_Assumption == "Medium life expectancy" &
+        Overseas_Migration == "Medium NOM" ~ "Medium Scenario",
+
+      Fertility_Assumption == "Low fertility" &
+        Mortality_Assumption == "Medium life expectancy" &
+        Overseas_Migration == "Zero NOM" ~ "Low Scenario",
+
+      TRUE ~ NA_character_
+    )
+  )
+
+# Define period labels
+q3 <- q3 |>
+  mutate(
+    Period = case_when(
+      Year >= 2017 & Year <= 2033 ~ "Start (2017–2033)",
+      Year >= 2034 & Year <= 2050 ~ "Middle (2034–2050)",
+      Year >= 2051 & Year <= 2066 ~ "End (2051–2066)",
+      TRUE ~ NA_character_
+    )
+  )
+
+# Filter valid rows and compute average population by period and scenario
+q3_filtered <- q3 |>
+  filter(!is.na(Scenario_Category), !is.na(Period)) |>
+  group_by(Period, Scenario_Category) |>
+  summarise(Avg_Population = mean(Projected_Popuation, na.rm = TRUE), .groups = "drop")
+
+# Reorder the factor levels for plotting
+q3_filtered <- q3_filtered |>
+  mutate(
+    Period = factor(Period, levels = c("Start (2017–2033)", "Middle (2034–2050)", "End (2051–2066)")),
+    Scenario_Category = factor(Scenario_Category, levels = c("Low Scenario", "Medium Scenario", "High Scenario"))
+  )
+
+# Step 6: Plot grouped bar chart
+ggplot(q3_filtered, aes(x = Period, y = Avg_Population, fill = Scenario_Category)) +
+  geom_col(position = "dodge", width = 0.7) +
+  labs(
+    title = "AVG. Projected Population by Period & Assumption Scenario",
+    x = "Projection Period",
+    y = "Average Population",
+    fill = "Scenario"
+  ) +
+  scale_y_continuous(labels = scales::comma) +
+  theme_minimal(base_size = 13)
+
+```
+
+@fig-assumption-scenario shows that the impact of demographic assumptions—fertility, mortality, and migration—was compared. Based on these assumptions, three distinct scenarios (High, Medium, Low) were created. While the early projections are similar, the differences between scenarios become significant over time. The High scenario results in a much larger population by 2066, while the Low scenario indicates slower growth. These findings highlight how population trends depend heavily on future policy, social trends, and international movement.
 
