@@ -10,8 +10,11 @@ editor: visual
 library(tidyverse)
 ```
 
-
 ```{r load-data}
 population_projection <- read_csv("data/population_projection.csv")
 ```
 
+
+##Executive Summary
+
+In this project we investigate Australia's projected population growth at the national and state levels. Using official population projection datasets and demographic assumptions, we examine the influence of fertility, mortality, and migration on future trends. A linear modelling approach is applied to quantify and compare projection scenarios. Our analysis supports a nuanced understanding of demographic shifts under varying assumptions.
