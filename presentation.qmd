@@ -13,6 +13,13 @@ format:
     theme: solarized
     transition: fade
     css: styles.css
+  pdf:
+    theme: default
+    mainfont: "Times New Roman"
+    fontsize: 11pt
+    geometry: margin=1in
+    keep-tex: true
+    include-in-header: preamble.tex
 ---
 
 ## Introduction
