@@ -133,6 +133,7 @@ ggplot(total_projection, aes(x = Year, y = Projected_Population)) +
   theme_minimal()
 
 #ggsave("figures/fig-total-projection.png", plot = plot_total, width = 7, height = 4, dpi = 300, bg = "white")
+
 ```
 
 @fig-total-projection shows that national population growth was assessed over time. The results showed a steady upward trend, with the population increasing consistently each year, reflecting sustained growth at the national level. In addition, the highlight from that chart is the projected population to rise to over 40 million by the year 2066 indicating steady long-term growth.
@@ -278,3 +279,4 @@ ggplot(q3_filtered, aes(x = Period, y = Avg_Population, fill = Scenario_Category
 @fig-assumption-scenario shows that the impact of demographic assumptions—fertility, mortality, and migration—was compared. Based on these assumptions, three distinct scenarios (High, Medium, Low) were created. While the early projections are similar, the differences between scenarios become significant over time. The High scenario results in a much larger population by 2066, while the Low scenario indicates slower growth. These findings highlight how population trends depend heavily on future policy, social trends, and international movement.
 
 ## Conclusion & Recommendation
+
