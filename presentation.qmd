@@ -1,0 +1,172 @@
+---
+title: "Population Projection Analysis"
+author:
+  - name: Watersword Team
+    affiliation:
+      - <>
+      - Hendrickson Joewono
+      - Jesus Javier Biurrun Bandala
+      - Ngoc Nguyen
+      - Yusuf Romadhon
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    css: styles.css
+---
+
+## Introduction
+
+<div style="font-size:90%;">
+1. How is Australia’s total population projected to change over time?
+
+2. How will population growth differ across the 8 main regions of Australia?
+
+3. How do fertility, mortality, and migration assumptions shape these projections?
+
+4. We use a single official dataset and scenario-based demographic assumptions.
+
+5. A linear modeling framework quantifies each factor’s influence on future growth.
+</div>
+
+---
+
+## Data Description
+
+<div style="font-size:90%;">
+Welcome to this presentation!
+
+- A
+- B
+- C
+</div>
+
+---
+
+## Data Cleaning Process
+
+<div style="font-size:90%;">
+1. After importing the data, some steps were taken to prepare it for analysis: 
+
+    - First, we filtered the observations corresponding to “All ages”.
+    - Removed columns unnecessary for the intended analysis.
+    - Standardized regional abbreviations by making them all uppercase.
+    - Reformatted all column names to follow a consistent naming convention for better clarity.
+    
+2. Only then we could proceed with the analysis.
+</div>
+
+---
+
+## Methodology {#sec-results}
+
+```{r}
+#| label: fig-methodology
+#| fig-cap: "Project Analysis Methodology."
+knitr::include_graphics("figures/methodology.png")
+```
+
+
+---
+
+## Results {#sec-results}
+
+<div style="font-size:50%;">
+<b>Q1.</b> What is the projected rate of population growth for Australia over time?
+
+Create year-to-year population projection line chart as in the @fig-total-projection:
+</div>
+
+```{r figure-1}
+#| label: fig-total-projection
+#| fig-cap: "<span style='font-size:80%'>Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Population is projected to rise to over 40 million by the year 2066 indicating steady long-term growth.</span>"
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("figures/fig-total-projection.png")
+
+```
+
+---
+
+## Results {#sec-results}
+
+<div style="font-size:50%;">
+<b>Q1.</b> What is the projected rate of population growth for Australia over time?  
+
+Create year-to-year population projected growth rate line chart as in the @fig-growth-chart:
+</div>
+
+```{r figure-3}
+#| label: fig-growth-chart
+#| fig-cap: "<span style='font-size:80%'>Projected annual population growth rate of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Growth rate is projected to decline to below 1% by 2066.</span>"
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("figures/fig-growth-chart.png")
+```
+
+---
+
+## Results {#sec-results}
+
+<div style="font-size:50%;">
+<b>Q2.</b> How is the total population projected to grow across different states and territories over time?  
+
+Analysing using multi-line chart as in the @fig-regional-chart:
+</div>
+
+```{r figure-4}
+#| label: fig-regional-chart
+#| fig-cap: "<span style='font-size:80%'>Indexed population growth in Australia by region from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Each region’s population is set to 100 in 2017 to compare relative growth.</span>"
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("figures/fig-regional-chart.png")
+```
+
+---
+
+## Results {#sec-results}
+
+<div style="font-size:50%;">
+<b>Q3.</b> How do different assumptions (fertility, mortality, migration) influence these projections?  
+
+Analysing using comparison bar chart as in the @fig-assumption-scenario:
+</div>
+
+```{r figure-5}
+#| label: fig-assumption-scenario
+#| fig-cap: "<span style='font-size:80%'>Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. The High scenario consistently projects the largest population, driven by higher fertility and migration, while the Low scenario shows slower growth due to reduced births and zero net migration.</span>"
+#| out-width: 80%
+#| fig-align: center
+
+knitr::include_graphics("figures/fig-assumption-scenario.png")
+```
+
+---
+
+
+## Conclusion & Recommendation
+
+<div style="font-size:70%;">
+1. **Key Takeaways**:
+
+    - Sustained but slowing national growth.
+    - Uneven regional population changes—growth concentrated in economically dynamic states.
+    - Long-term projections highly sensitive to demographic assumptions.
+
+2. **Recommendations**:
+    
+    - Regional planning: Boost growth in lagging states (e.g., TAS, SA) with incentives; invest in infrastructure in fast-growing states (e.g., VIC, WA).
+    - Demographic monitoring: Track key trends and adjust policies; benchmark with countries like Canada and the UK.
+    - Further research: Study aging in slow-growth areas, model external shocks, and assess environmental impacts of growth.
+</div>
+
+---
+
+## Thank You
+
+::: notes
+
+:::
