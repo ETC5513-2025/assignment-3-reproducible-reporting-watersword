@@ -1,0 +1,67 @@
+---
+title: "Population Projection Analysis"
+author: "watersword"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    css: styles.css
+---
+
+## Introduction
+
+Welcome to this presentation!
+
+- A
+- B
+- C
+
+---
+
+## Dataset Description
+
+Welcome to this presentation!
+
+- A
+- B
+- C
+
+---
+
+## Methodology
+
+Welcome to this presentation!
+
+- A
+- B
+- C
+
+---
+
+## Results
+
+Welcome to this presentation!
+
+- A
+- B
+- C
+
+---
+
+## Conclusion & Recommendation
+
+Welcome to this presentation!
+
+- A
+- B
+- C
+
+---
+
+## Final Slide
+
+Thank you for your attention!
+
+::: notes
+This is a note for the speaker only.
+:::
