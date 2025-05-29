@@ -17,6 +17,4 @@ population_projection <- read_csv("data/population_projection.csv")
 
 ##Executive Summary
 
-In this project we investigate Australia's projected population growth at the national and state levels. Using official population projection datasets and demographic assumptions, we examine the influence of fertility, mortality, and migration on future trends. A linear modelling approach is applied to quantify and compare projection scenarios. Our analysis supports a nuanced understanding of demographic shifts under varying assumptions.
-
-This project investigates Australia's projected population growth, exploring both national and state-specific trends. Our analysis used official projection datasets and demographic assumptions to pinpoint the influence of fertility, mortality, and migration. Through linear modeling, we quantified and contrasted different future scenarios, ultimately providing a nuanced understanding of potential demographic shifts.
+This project investigates Australia’s projected population growth, exploring both national and regional trends across the eight main regions of Australia. Using official projection datasets and demographic assumptions, we pinpoint the influence of fertility, mortality, and migration on future scenarios. Through linear modeling, we quantified and contrasted these factors to reveal how assumptions shape projections. Our results show that migration has the strongest impact on population growth, followed by fertility, with mortality having the least influence.
