@@ -4,14 +4,46 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Discussion, Conclusion and Recommendation
 
-```{r library}
-library(tidyverse)
-```
+### Discussion
 
+The population projection analysis underscores a crucial insight: Australia is poised for sustained population growth, but the pace and distribution of this growth are highly variable depending on regional and demographic factors.
 
-```{r load-data}
-population_projection <- read_csv("data/population_projection.csv")
-```
+Firstly, the national upward trend in population is consistent across all assumption scenarios, though the growth rate slows over time, dropping below 1% by 2066. This tapering growth may reflect demographic maturity, where lower fertility rates and aging populations contribute to deceleration despite net migration.
 
+Secondly, state and territory-level comparisons reveal stark differences in regional population trajectories. Victoria has consistently maintained the leading position in terms of indexed growth under medium assumptions, reflecting its enduring strength as both an economic hub and a major destination for internal and international migration. However, from 2030 onwards, Western Australia shows a notable acceleration in growth, indicating its rising prominence as an emerging economic and migration magnet. In contrast, states like Tasmania and South Australia continue to experience comparatively slower growth, which may pose challenges in sustaining economic vitality and public service provision amid relatively stagnant populations. These regional disparities highlight the importance of implementing place-based planning strategies tailored to the distinct demographic and economic contexts of each state.
+
+Thirdly, the influence of demographic assumptions is significant. The differences between low, medium, and high scenarios amplify as projections move further into the future. This sensitivity analysis shows that migration policies and fertility trends are pivotal levers that can drastically alter Australia’s demographic future. For instance, a high-migration, high-fertility scenario leads to a considerably larger population by 2066 than a conservative one. This raises questions about the country’s infrastructure readiness, environmental sustainability, and social cohesion under varying scenarios.
+
+### Conclusion
+
+Australia’s population is projected to grow significantly over the next five decades, but this growth will not be evenly spread across regions nor equally influenced by demographic factors. Nationally, the population is on track to exceed 40 million by 2066 under medium assumptions, though regional growth will be uneven.
+
+The study confirms three major takeaways:
+
+1. Sustained national growth—but at a declining rate.
+
+2. Regional disparities in growth, with populous and economically active states growing faster.
+
+3. Critical dependency on assumptions—particularly fertility and migration rates—that shape long-term projections.
+
+These findings carry profound implications for urban planning, public service delivery, environmental resource management, and economic development strategies.
+
+### Recommendation
+
+1. Targeted regional strategies: Regional differences call for differentiated planning. States like Tasmania and South Australia might need economic incentives or migration programs to stimulate growth, while high-growth areas like Victoria should prioritize housing, transport, and social infrastructure to prevent strain.
+
+2. Demographic monitoring & Policy adjustments: Real-time demographic data (fertility, migration trends, mortality) must be monitored closely. Adjustments to immigration quotas, family support policies, and healthcare planning can help steer population growth toward sustainable and desirable outcomes.
+
+3. Policy-makers need to challenge projection assumptions: Are fertility rates likely to change due to policy or social shifts? Could unexpected migration events (e.g. geopolitical crises) alter projections? Besides, they should use comparative frameworks from other nations experiencing similar demographic transitions (e.g., Canada, the UK) to benchmark potential outcomes.
+
+4. Further research recommended includes: 
+
+- Investigate the implications of population aging in slower-growing states.
+
+- Model how external shocks (e.g. pandemics, climate migration) might impact current projections.
+
+- Study correlations between population growth and environmental impact at a regional level.
+
+## Reference
