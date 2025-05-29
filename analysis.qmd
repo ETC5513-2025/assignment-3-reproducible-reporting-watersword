@@ -4,19 +4,15 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Introduction
 
-```{r library}
-library(tidyverse)
-```
+Australia’s population is expected to grow significantly over the coming decades. Understanding this growth is crucial for informing infrastructure, healthcare, education, and housing policies. In this project, we explore:
 
-```{r load-data}
-population_projection <- read_csv("data/population_projection.csv")
-```
+- How is Australia's total population projected to change over the years?  
 
+- How is the total population projected to grow across different states and territories over time?
 
-##Executive Summary
+- How do different assumptions (fertility, mortality, migration) influence these projections? 
 
-In this project we investigate Australia's projected population growth at the national and state levels. Using official population projection datasets and demographic assumptions, we examine the influence of fertility, mortality, and migration on future trends. A linear modelling approach is applied to quantify and compare projection scenarios. Our analysis supports a nuanced understanding of demographic shifts under varying assumptions.
+Our analysis leveraged two key datasets: one detailing state-level population projections and another outlining scenario-based demographic assumptions. A linear modeling framework was applied to quantify the influence of each demographic factor and evaluate projection accuracy across different regions. This approach integrated statistical analysis and visualization to deliver a comprehensive view of Australia's demographic future. The research aimed to pinpoint which factors contribute most significantly to projected population changes. 
 
-This project investigates Australia's projected population growth, exploring both national and state-specific trends. Our analysis used official projection datasets and demographic assumptions to pinpoint the influence of fertility, mortality, and migration. Through linear modeling, we quantified and contrasted different future scenarios, ultimately providing a nuanced understanding of potential demographic shifts.
