@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+## Executive Summary
+
+This project investigates Australia’s projected population growth, exploring both national and regional trends across the eight main regions of Australia. Using official projection datasets and demographic assumptions, we pinpoint the influence of fertility, mortality, and migration on future scenarios. Through linear modeling, we quantified and contrasted these factors to reveal how assumptions shape projections. Our results show that migration has the strongest impact on population growth, followed by fertility, with mortality having the least influence.
+
 ## Introduction
 
 Australia’s population is expected to grow significantly over the coming decades. Understanding this growth is crucial for informing infrastructure, healthcare, education, and housing policies. In this project, we explore:
@@ -14,5 +18,15 @@ Australia’s population is expected to grow significantly over the coming decad
 
 - How do different assumptions (fertility, mortality, migration) influence these projections? 
 
-Our analysis leveraged two key datasets: one detailing state-level population projections and another outlining scenario-based demographic assumptions. A linear modeling framework was applied to quantify the influence of each demographic factor and evaluate projection accuracy across different regions. This approach integrated statistical analysis and visualization to deliver a comprehensive view of Australia's demographic future. The research aimed to pinpoint which factors contribute most significantly to projected population changes. 
+Our analysis leverages a single official dataset detailing regional population projections and scenario-based demographic assumptions. A linear modeling framework is applied to quantify the influence of each demographic factor and evaluate projection accuracy across regions. This approach integrates statistical analysis and visualisation to provide a comprehensive view of Australia’s demographic future. The research aims to identify which demographic variables drive the most substantial changes. By comparing alternative projection scenarios, we gain insight into the sensitivity of future growth to changes in policy or global conditions. Our findings emphasise the dominant role of migration, followed by fertility, while mortality has comparatively minimal effect. 
 
+## Quarto
+
+```{r library}
+library(tidyverse)
+```
+
+
+```{r load-data}
+population_projection <- read_csv("data/population_projection.csv")
+```
