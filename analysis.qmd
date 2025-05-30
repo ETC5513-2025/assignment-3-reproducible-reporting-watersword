@@ -47,3 +47,23 @@ These findings carry profound implications for urban planning, public service de
 - Study correlations between population growth and environmental impact at a regional level.
 
 ## Reference
+
+Australian Bureau of Statistics. (2018). Population Projections by Regions , Australia, 2017 (base) – 2066 [Data   set]. Australian Government.    https://dataexplorer.abs.gov.au/vis?tm=Population%20Projections&pg=0&hc[People]=Population%20%3E%20Population%20Projections&df[ds]=PEOPLE_TOPICS&df[id]=POP_PROJ_REGION_2012_2061&df[ag]=ABS&df[vs]=1.0.0&pd=2017%2C&dq=1%2B2%2B3%2B4%2B5%2B6%2B7%2B8.1%2B2.TT.1%2B2%2B3.1.1%2B2%2B3%2B4.1%2B2%2B3.A&ly[cl]=SEX_ABS&ly[rs]=FERTILITY%2CNOM%2CNIM&ly[rw]=TIME_PERIOD%2CREGION&to[TIME_PERIOD]=false&vw=ov
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York,
+  2016.
+  
+Xie Y (2024). _knitr: A General-Purpose Package for Dynamic Report Generation in
+  R_. R package version 1.49, <https://yihui.org/knitr/>.
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes
+  A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J,
+  Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H
+  (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43),
+  1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+  
+
+
+
+
+
