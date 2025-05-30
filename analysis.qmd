@@ -8,6 +8,7 @@ execute:
   echo: false
 ---
 
+
 ## Executive Summary
 
 This project investigates Australia’s projected population growth, exploring both national and regional trends across the eight main regions of Australia. Using official projection datasets and demographic assumptions, we pinpoint the influence of fertility, mortality, and migration on future scenarios. Through linear modeling, we quantified and contrasted these factors to reveal how assumptions shape projections. Our results show that migration has the strongest impact on population growth, followed by fertility, with mortality having the least influence.
@@ -278,5 +279,62 @@ ggplot(q3_filtered, aes(x = Period, y = Avg_Population, fill = Scenario_Category
 
 @fig-assumption-scenario shows that the impact of demographic assumptions—fertility, mortality, and migration—was compared. Based on these assumptions, three distinct scenarios (High, Medium, Low) were created. While the early projections are similar, the differences between scenarios become significant over time. The High scenario results in a much larger population by 2066, while the Low scenario indicates slower growth. These findings highlight how population trends depend heavily on future policy, social trends, and international movement.
 
-## Conclusion & Recommendation
+## Discussion, Conclusion and Recommendation
+
+### Discussion
+
+The population projection analysis underscores a crucial insight: Australia is poised for sustained population growth, but the pace and distribution of this growth are highly variable depending on regional and demographic factors.
+
+Firstly, the national upward trend in population is consistent across all assumption scenarios, though the growth rate slows over time, dropping below 1% by 2066. This tapering growth may reflect demographic maturity, where lower fertility rates and aging populations contribute to deceleration despite net migration.
+
+Secondly, state and territory-level comparisons reveal stark differences in regional population trajectories. Victoria has consistently maintained the leading position in terms of indexed growth under medium assumptions, reflecting its enduring strength as both an economic hub and a major destination for internal and international migration. However, from 2030 onwards, Western Australia shows a notable acceleration in growth, indicating its rising prominence as an emerging economic and migration magnet. In contrast, states like Tasmania and South Australia continue to experience comparatively slower growth, which may pose challenges in sustaining economic vitality and public service provision amid relatively stagnant populations. These regional disparities highlight the importance of implementing place-based planning strategies tailored to the distinct demographic and economic contexts of each state.
+
+Thirdly, the influence of demographic assumptions is significant. The differences between low, medium, and high scenarios amplify as projections move further into the future. This sensitivity analysis shows that migration policies and fertility trends are pivotal levers that can drastically alter Australia’s demographic future. For instance, a high-migration, high-fertility scenario leads to a considerably larger population by 2066 than a conservative one. This raises questions about the country’s infrastructure readiness, environmental sustainability, and social cohesion under varying scenarios.
+
+### Conclusion
+
+Australia’s population is projected to grow significantly over the next five decades, but this growth will not be evenly spread across regions nor equally influenced by demographic factors. Nationally, the population is on track to exceed 40 million by 2066 under medium assumptions, though regional growth will be uneven.
+
+The study confirms three major takeaways:
+
+1. Sustained national growth—but at a declining rate.
+
+2. Regional disparities in growth, with populous and economically active states growing faster.
+
+3. Critical dependency on assumptions—particularly fertility and migration rates—that shape long-term projections.
+
+These findings carry profound implications for urban planning, public service delivery, environmental resource management, and economic development strategies.
+
+### Recommendation
+
+1. Targeted regional strategies: Regional differences call for differentiated planning. States like Tasmania and South Australia might need economic incentives or migration programs to stimulate growth, while high-growth areas like Victoria should prioritize housing, transport, and social infrastructure to prevent strain.
+
+2. Demographic monitoring & Policy adjustments: Real-time demographic data (fertility, migration trends, mortality) must be monitored closely. Adjustments to immigration quotas, family support policies, and healthcare planning can help steer population growth toward sustainable and desirable outcomes.
+
+3. Policy-makers need to challenge projection assumptions: Are fertility rates likely to change due to policy or social shifts? Could unexpected migration events (e.g. geopolitical crises) alter projections? Besides, they should use comparative frameworks from other nations experiencing similar demographic transitions (e.g., Canada, the UK) to benchmark potential outcomes.
+
+4. Further research recommended includes: 
+
+- Investigate the implications of population aging in slower-growing states.
+
+- Model how external shocks (e.g. pandemics, climate migration) might impact current projections.
+
+- Study correlations between population growth and environmental impact at a regional level.
+
+## Reference
+
+Australian Bureau of Statistics. (2018). Population Projections by Regions , Australia, 2017 (base) – 2066 [Data   set]. Australian Government.    https://dataexplorer.abs.gov.au/vis?tm=Population%20Projections&pg=0&hc[People]=Population%20%3E%20Population%20Projections&df[ds]=PEOPLE_TOPICS&df[id]=POP_PROJ_REGION_2012_2061&df[ag]=ABS&df[vs]=1.0.0&pd=2017%2C&dq=1%2B2%2B3%2B4%2B5%2B6%2B7%2B8.1%2B2.TT.1%2B2%2B3.1.1%2B2%2B3%2B4.1%2B2%2B3.A&ly[cl]=SEX_ABS&ly[rs]=FERTILITY%2CNOM%2CNIM&ly[rw]=TIME_PERIOD%2CREGION&to[TIME_PERIOD]=false&vw=ov
+
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York,
+  2016.
+  
+Xie Y (2024). _knitr: A General-Purpose Package for Dynamic Report Generation in
+  R_. R package version 1.49, <https://yihui.org/knitr/>.
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes
+  A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J,
+  Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H
+  (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43),
+  1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+  
 
