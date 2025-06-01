@@ -116,7 +116,7 @@ The core analysis is guided by three research questions: How will Australia’s 
 
 Results are presented using appropriate charts. National growth over time is visualised with a line chart, showing how population changes annually. State-level comparisons are made with a multi-line chart, allowing direct comparisons between regions. For scenario-based comparisons, a grouped bar chart is used. This chart compares the average population in three periods—Start (2017–2033), Middle (2034–2050), and End (2051–2066)—under three different assumptions: Low, Medium, and High. The scenarios are defined based on combinations of fertility rates, life expectancy, and migration levels.
 
-Finally, the process leads to a conclusion and recommendation section, where key findings are summarised and implications for planning are discussed. This method ensures a logical flow from question to insight and allows policymakers and planners to interpret complex projection data clearly.
+Finally, the process leads to a conclusion and recommendation section, where key findings are summarised and implications for planning are discussed. This method ensures a logical flow from question to insight, allowing policymakers and planners to interpret complex projection data clearly.
 
 ## Data Description
 
@@ -215,7 +215,7 @@ ggplot(total_projection, aes(x = Year, y = Growth_Rate)) +
 #ggsave("figures/fig-growth-chart.png", plot = plot_total, width = 7, height = 4, dpi = 300, bg = "white")
 ```
 
-@fig-growth-chart shows that while the population grows, the annual growth rate slows over time, falling to below 1% by 2066. This suggests a gradual deceleration in population increase despite overall growth.
+@fig-growth-chart shows that while the population grows, the annual growth rate slows over time, falling below 1% by 2066. This suggests a gradual deceleration in population increase despite overall growth.
 
 ### Q2. How is the total population projected to grow across different states and territories over time?
 
