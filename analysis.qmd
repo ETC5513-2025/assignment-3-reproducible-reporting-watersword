@@ -1,10 +1,10 @@
 ---
 title: "watersword"
 author: 
-- Hendrickson 
-- Jesus
-- Ngoc
-- ZuxiLu
+- Hendrickson Joewono 
+- Jesus Javier Biurrun Bandala
+- Ngoc Nguyen
+- Yusuf Romadhon
 
 format:
   pdf:
