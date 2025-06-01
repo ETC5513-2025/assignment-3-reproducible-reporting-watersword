@@ -7,4 +7,10 @@ Group Members:
 * Hendrickson Joewono
 * Yusuf Romadhon
 
-Topic: 
+Topic: Population Projection Analysis
+
+File Information:
+
+* The business report of this project is analysis.pdf
+* The presentation of this project is presentation.qmd
+
