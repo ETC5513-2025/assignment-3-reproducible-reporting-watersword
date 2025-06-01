@@ -57,28 +57,6 @@ The raw dataset contains 172800 observations across 30 different variables!
 
 ---
 
-## Cleaning the Data
-
-<div style="font-size:90%;">
-
-Prior to analysis, data tidying was carried out with the Tidyverse package to prepare a clean and structured dataset.
-
-</div>
-
-<div style="font-size:80%;">
-1. Steps taken to prepare the data for analysis: 
-
-    - Filtered to only observations corresponding to “All ages”.
-    - Removed columns unnecessary for the intended analysis.
-    - Standardized regional abbreviations to uppercase.
-    - Reformatted various column names for ease of use.
-    
-2. This leaves us with only 57600 observations across 10 variables!
-
-</div>
-
----
-
 ## Variables Present
 
 <div style="font-size:50%;">
@@ -102,7 +80,7 @@ Prior to analysis, data tidying was carried out with the Tidyverse package to pr
 
 ## Methodology {#sec-results}
 
-```{r}
+```{r figure-1}
 #| label: fig-methodology
 #| fig-cap: "Project Analysis Methodology."
 knitr::include_graphics("figures/methodology.png")
@@ -114,12 +92,12 @@ knitr::include_graphics("figures/methodology.png")
 ## Results {#sec-results}
 
 <div style="font-size:50%;">
-<b>Q1(a).</b> How is Australia’s total population projected to change over time?
+<b>Q1.</b> How is Australia’s total population projected to change over time?
 
 We can analyse this using a population projection line chart as shown in @fig-total-projection:
 </div>
 
-```{r figure-1}
+```{r figure-2}
 #| label: fig-total-projection
 #| fig-cap: "<span style='font-size:80%'>Projected population of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Population is projected to rise to over 40 million by the year 2066 indicating steady long-term growth.</span>"
 #| out-width: 80%
@@ -127,25 +105,6 @@ We can analyse this using a population projection line chart as shown in @fig-to
 
 knitr::include_graphics("figures/fig-total-projection.png")
 
-```
-
----
-
-## Results {#sec-results}
-
-<div style="font-size:50%;">
-<b>Q1(b).</b> What is the projected rate of population growth for Australia over time?  
-
-We can analyse this using a growth rate projection line chart as shown in @fig-growth-chart:
-</div>
-
-```{r figure-3}
-#| label: fig-growth-chart
-#| fig-cap: "<span style='font-size:80%'>Projected annual population growth rate of Australia from 2017 to 2066 under medium fertility, mortality, and migration assumptions. Growth rate is projected to decline to below 1% by 2066.</span>"
-#| out-width: 80%
-#| fig-align: center
-
-knitr::include_graphics("figures/fig-growth-chart.png")
 ```
 
 ---
@@ -219,10 +178,6 @@ knitr::include_graphics("figures/fig-assumption-scenario.png")
 
 3. Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. <https://ggplot2-book.org>
 </div>
-
----
-
-## Thank You
 
 ::: notes
 Completed
