@@ -1,10 +1,7 @@
 ---
-title: "watersword"
+title: "Population Projection Analysis in Australia"
 author: 
-- Hendrickson Joewono 
-- Jesus Javier Biurrun Bandala
-- Ngoc Nguyen
-- Yusuf Romadhon
+- (Hendrickson Joewono, Jesus Javier Biurrun Bandala, Ngoc Nguyen, and Yusuf Romadhon)
 
 format:
   pdf:
@@ -119,7 +116,7 @@ The core analysis is guided by three research questions: How will Australia’s 
 
 Results are presented using appropriate charts. National growth over time is visualised with a line chart, showing how population changes annually. State-level comparisons are made with a multi-line chart, allowing direct comparisons between regions. For scenario-based comparisons, a grouped bar chart is used. This chart compares the average population in three periods—Start (2017–2033), Middle (2034–2050), and End (2051–2066)—under three different assumptions: Low, Medium, and High. The scenarios are defined based on combinations of fertility rates, life expectancy, and migration levels.
 
-Finally, the process leads to a conclusion and recommendation section, where key findings are summarised, and implications for planning are discussed. This method ensures a logical flow from question to insight, and allows clear interpretation of complex projection data for policymakers and planners.
+Finally, the process leads to a conclusion and recommendation section, where key findings are summarised and implications for planning are discussed. This method ensures a logical flow from question to insight and allows policymakers and planners to interpret complex projection data clearly.
 
 ## Data Description
 
@@ -133,7 +130,7 @@ Finally, the process leads to a conclusion and recommendation section, where key
 **Collected On:** 26 May 2025
 :::
 
-#### Description of all Variables
+### Description of all Variables
 
 : Description of variables in the Australian population projection dataset {#tbl-vars}
 
@@ -151,7 +148,8 @@ Finally, the process leads to a conclusion and recommendation section, where key
 | `Projected_Population` | Estimated total population for the specified region, year, and demographics. |
 
 
-@tbl-vars shows a description of all the variables present in the Australian Population Projections by Region (2017–2066) dataset after cleaning. 
+@tbl-vars shows a description of all the variables present in the Australian Population Projections by Region (2017–2066) dataset after cleaning.
+
 
 ## Results {#sec-results}
 
