@@ -164,7 +164,7 @@
 \makeatletter
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, sharp corners, frame hidden, boxrule=0pt, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 
 \usepackage{bookmark}
@@ -292,13 +292,13 @@ of fertility rates, life expectancy, and migration levels.
 
 Finally, the process leads to a conclusion and recommendation section,
 where key findings are summarised and implications for planning are
-discussed. This method ensures a logical flow from question to insight
-and allows policymakers and planners to interpret complex projection
-data clearly.
+discussed. This method ensures a logical flow from question to insight,
+allowing policymakers and planners to interpret complex projection data
+clearly.
 
 \section{Data Description}\label{data-description}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, coltitle=black, opacitybacktitle=0.6, titlerule=0mm, bottomrule=.15mm, arc=.35mm, colback=white, left=2mm, toprule=.15mm, toptitle=1mm, opacityback=0, bottomtitle=1mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Meta Data}, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Meta Data}, opacityback=0, toprule=.15mm, toptitle=1mm, breakable, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, left=2mm, arc=.35mm, colback=white, coltitle=black, bottomtitle=1mm, titlerule=0mm]
 
 \textbf{Title:} \emph{Australian Population Projections by Region
 (2017--2066)}\\
@@ -412,7 +412,7 @@ by 2066.}
 \end{figure}%
 
 Figure~\ref{fig-growth-chart} shows that while the population grows, the
-annual growth rate slows over time, falling to below 1\% by 2066. This
+annual growth rate slows over time, falling below 1\% by 2066. This
 suggests a gradual deceleration in population increase despite overall
 growth.
 
