@@ -9,7 +9,7 @@
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <meta name="author" content="Watersword Team">
+  <meta name="author" content="Watersword Team (Group 8)">
   <title>Population Projection Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -133,7 +133,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Watersword Team 
+Watersword Team (Group 8) 
 </div>
         <p class="quarto-title-affiliation">
             &lt;&gt;
@@ -161,35 +161,114 @@ Watersword Team
 <li><p>How is Australia’s total population projected to change over time?</p></li>
 <li><p>How will population growth differ across the 8 main regions of Australia?</p></li>
 <li><p>How do fertility, mortality, and migration assumptions shape these projections?</p></li>
-<li><p>We use a single official dataset and scenario-based demographic assumptions.</p></li>
-<li><p>A linear modeling framework quantifies each factor’s influence on future growth.</p></li>
 </ol>
+<div style="font-size:80%;">
+<p>To answer these questions, we use a single official dataset containing scenario-based demographic assumptions to generate future population projections. A linear modeling framework quantifies each factor’s influence on future growth.</p>
+</div>
 </div>
 </section>
 <section id="data-description" class="slide level2">
 <h2>Data Description</h2>
 <div style="font-size:90%;">
-<p>Welcome to this presentation!</p>
-<ul>
-<li>A</li>
-<li>B</li>
-<li>C</li>
-</ul>
+<div title="Meta Data">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Meta Data</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Title:</strong> <em>Australian Population Projections by Region (2017–2066)</em><br>
+<strong>Description:</strong> This dataset contains projected population estimates for Australia’s states and territories from 2017 to 2066 under various demographic assumptions. Data was sourced from the Australian Bureau of Statistics (ABS).<br>
+<strong>Source:</strong> Australian Bureau of Statistics – <a href="https://www.abs.gov.au">abs.gov.au</a><br>
+<strong>Attribution:</strong> © Commonwealth of Australia (ABS), accessed 30 May 2025.<br>
+<strong>Time Coverage:</strong> 2017–2066<br>
+<strong>Geographic Scope:</strong> All Australian states and territories<br>
+<strong>Collected On:</strong> 26 May 2025</p>
+</div>
+</div>
+</div>
+</div>
+<p>The raw dataset contains 172800 observations across 30 different variables!</p>
 </div>
 </section>
-<section id="data-cleaning-process" class="slide level2">
-<h2>Data Cleaning Process</h2>
+<section id="cleaning-the-data" class="slide level2">
+<h2>Cleaning the Data</h2>
 <div style="font-size:90%;">
+<p>Prior to analysis, data tidying was carried out with the Tidyverse package to prepare a clean and structured dataset.</p>
+</div>
+<div style="font-size:80%;">
 <ol type="1">
-<li><p>After importing the data, some steps were taken to prepare it for analysis:</p>
+<li><p>Steps taken to prepare the data for analysis:</p>
 <ul>
-<li>First, we filtered the observations corresponding to “All ages”.</li>
+<li>Filtered to only observations corresponding to “All ages”.</li>
 <li>Removed columns unnecessary for the intended analysis.</li>
-<li>Standardized regional abbreviations by making them all uppercase.</li>
-<li>Reformatted all column names to follow a consistent naming convention for better clarity.</li>
+<li>Standardized regional abbreviations to uppercase.</li>
+<li>Reformatted various column names for ease of use.</li>
 </ul></li>
-<li><p>Only then we could proceed with the analysis.</p></li>
+<li><p>This leaves us with only 57600 observations across 10 variables!</p></li>
 </ol>
+</div>
+</section>
+<section id="variables-present" class="slide level2">
+<h2>Variables Present</h2>
+<div style="font-size:50%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Region</code></td>
+<td>Abbreviation for each Australian state or territory (e.g., NSW, VIC, WA).</td>
+</tr>
+<tr class="even">
+<td><code>Sex</code></td>
+<td>Sex category of the projection (e.g., “Males”, “Females”).</td>
+</tr>
+<tr class="odd">
+<td><code>Fertility_Assumption</code></td>
+<td>Assumed fertility level used in projection (e.g., “Medium fertility”).</td>
+</tr>
+<tr class="even">
+<td><code>Mortality_Assumption</code></td>
+<td>Assumed mortality level used in projection (e.g., “Medium life expectancy”).</td>
+</tr>
+<tr class="odd">
+<td><code>NOM</code></td>
+<td>Numeric value of net overseas migration scenario.</td>
+</tr>
+<tr class="even">
+<td><code>Overseas_Migration</code></td>
+<td>Assumed level of net overseas migration (e.g., “Medium NOM”).</td>
+</tr>
+<tr class="odd">
+<td><code>NIM</code></td>
+<td>Numeric value of net interstate migration scenario.</td>
+</tr>
+<tr class="even">
+<td><code>Interstate_Migration</code></td>
+<td>Assumed level of net interstate migration (e.g., “Medium interstate flows”).</td>
+</tr>
+<tr class="odd">
+<td><code>Year</code></td>
+<td>Year of the population projection (2017 to 2066).</td>
+</tr>
+<tr class="even">
+<td><code>Projected_Population</code></td>
+<td>Estimated total population for the specified region, year, and demographics.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 <section id="sec-results" class="slide level2">
@@ -201,8 +280,8 @@ Figure&nbsp;1: Project Analysis Methodology.
 <section id="sec-results" class="slide level2">
 <h2>Results</h2>
 <div style="font-size:50%;">
-<p><b>Q1.</b> What is the projected rate of population growth for Australia over time?</p>
-<p>Create year-to-year population projection line chart as in the <a href="#/fig-total-projection" class="quarto-xref">Figure&nbsp;2</a>:</p>
+<p><b>Q1(a).</b> How is Australia’s total population projected to change over time?</p>
+<p>We can analyse this using a population projection line chart as shown in <a href="#/fig-total-projection" class="quarto-xref">Figure&nbsp;2</a>:</p>
 </div>
 
 <img data-src="figures/fig-total-projection.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%" id="fig-total-projection"><p class="caption">
@@ -211,8 +290,8 @@ Figure&nbsp;2: <span style="font-size:80%">Projected population of Australia fro
 <section id="sec-results" class="slide level2">
 <h2>Results</h2>
 <div style="font-size:50%;">
-<p><b>Q1.</b> What is the projected rate of population growth for Australia over time?</p>
-<p>Create year-to-year population projected growth rate line chart as in the <a href="#/fig-growth-chart" class="quarto-xref">Figure&nbsp;3</a>:</p>
+<p><b>Q1(b).</b> What is the projected rate of population growth for Australia over time?</p>
+<p>We can analyse this using a growth rate projection line chart as shown in <a href="#/fig-growth-chart" class="quarto-xref">Figure&nbsp;3</a>:</p>
 </div>
 
 <img data-src="figures/fig-growth-chart.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%" id="fig-growth-chart"><p class="caption">
@@ -221,8 +300,8 @@ Figure&nbsp;3: <span style="font-size:80%">Projected annual population growth ra
 <section id="sec-results" class="slide level2">
 <h2>Results</h2>
 <div style="font-size:50%;">
-<p><b>Q2.</b> How is the total population projected to grow across different states and territories over time?</p>
-<p>Analysing using multi-line chart as in the <a href="#/fig-regional-chart" class="quarto-xref">Figure&nbsp;4</a>:</p>
+<p><b>Q2.</b> How will population growth differ across the 8 main regions of Australia?</p>
+<p>We can analyse this using a multi-line chart as shown in <a href="#/fig-regional-chart" class="quarto-xref">Figure&nbsp;4</a>:</p>
 </div>
 
 <img data-src="figures/fig-regional-chart.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%" id="fig-regional-chart"><p class="caption">
@@ -231,8 +310,8 @@ Figure&nbsp;4: <span style="font-size:80%">Indexed population growth in Australi
 <section id="sec-results" class="slide level2">
 <h2>Results</h2>
 <div style="font-size:50%;">
-<p><b>Q3.</b> How do different assumptions (fertility, mortality, migration) influence these projections?</p>
-<p>Analysing using comparison bar chart as in the <a href="#/fig-assumption-scenario" class="quarto-xref">Figure&nbsp;5</a>:</p>
+<p><b>Q3.</b> How do fertility, mortality, and migration assumptions shape these projections?</p>
+<p>We can Analyse this using comparison bar chart as shown in <a href="#/fig-assumption-scenario" class="quarto-xref">Figure&nbsp;5</a>:</p>
 </div>
 
 <img data-src="figures/fig-assumption-scenario.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%" id="fig-assumption-scenario"><p class="caption">
@@ -257,10 +336,20 @@ Figure&nbsp;5: <span style="font-size:80%">Projected population of Australia fro
 </ol>
 </div>
 </section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<div style="font-size:70%;">
+<ol type="1">
+<li><p>Australian Bureau of Statistics. (2023). Population Projections, Australia, 2017 to 2066 (Data Explorer Table). Retrieved May 2025, from <a href="https://dataexplorer.abs.gov.au" class="uri">https://dataexplorer.abs.gov.au</a>.</p></li>
+<li><p>Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” <em>Journal of Open Source Software</em>, 4(43), 1686. doi:10.21105/joss.01686 <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a>.</p></li>
+<li><p>Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. <a href="https://ggplot2-book.org" class="uri">https://ggplot2-book.org</a></p></li>
+</ol>
+</div>
+</section>
 <section id="thank-you" class="slide level2">
 <h2>Thank You</h2>
 <aside class="notes">
-
+<p>Completed</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
