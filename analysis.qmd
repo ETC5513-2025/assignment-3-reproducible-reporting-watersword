@@ -135,6 +135,8 @@ Finally, the process leads to a conclusion and recommendation section, where key
 
 #### Description of all Variables
 
+: Description of variables in the Australian population projection dataset {#tbl-vars}
+
 | **Variable** | **Description** |
 |------------------------------------|------------------------------------|
 | `Region` | Abbreviation for each Australian state or territory (e.g., NSW, VIC, WA). |
@@ -147,6 +149,9 @@ Finally, the process leads to a conclusion and recommendation section, where key
 | `Interstate_Migration` | Assumed level of net interstate migration (e.g., "Medium interstate flows"). |
 | `Year` | Year of the population projection (2017 to 2066). |
 | `Projected_Population` | Estimated total population for the specified region, year, and demographics. |
+
+
+@tbl-vars shows a description of all the variables present in the Australian Population Projections by Region (2017–2066) dataset after cleaning. 
 
 ## Results {#sec-results}
 
