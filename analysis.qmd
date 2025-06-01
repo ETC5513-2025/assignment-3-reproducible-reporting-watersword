@@ -8,7 +8,6 @@ execute:
   echo: false
 ---
 
-
 ## Executive Summary
 
 This project investigates Australia’s projected population growth, exploring both national and regional trends across the eight main regions of Australia. Using official projection datasets and demographic assumptions, we pinpoint the influence of fertility, mortality, and migration on future scenarios. Through linear modeling, we quantified and contrasted these factors to reveal how assumptions shape projections. Our results show that migration has the strongest impact on population growth, followed by fertility, with mortality having the least influence.
@@ -90,33 +89,32 @@ Results are presented using appropriate charts. National growth over time is vis
 
 Finally, the process leads to a conclusion and recommendation section, where key findings are summarised, and implications for planning are discussed. This method ensures a logical flow from question to insight, and allows clear interpretation of complex projection data for policymakers and planners.
 
-
 ## Data Description
 
 ::: {.callout-note title="Meta Data"}
-**Title:** *Australian Population Projections by Region (2017–2066)*  
-**Description:** This dataset contains projected population estimates for Australia's states and territories from 2017 to 2066 under various demographic assumptions. Data was sourced from the Australian Bureau of Statistics (ABS). Observations have been filtered, unnecessary variables were removed and columns standardized to support regional population trend analysis.  
-**Source:** Australian Bureau of Statistics – [abs.gov.au](https://www.abs.gov.au)  
-**Attribution:** © Commonwealth of Australia (ABS), accessed 30 May 2025.  
-**Time Coverage:** 2017–2066  
-**Geographic Scope:** All Australian states and territories  
-**Collected On:** 26 May 2025  
+**Title:** *Australian Population Projections by Region (2017–2066)*\
+**Description:** This dataset contains projected population estimates for Australia's states and territories from 2017 to 2066 under various demographic assumptions. Data was sourced from the Australian Bureau of Statistics (ABS). Observations have been filtered, unnecessary variables were removed and columns standardized to support regional population trend analysis.\
+**Source:** Australian Bureau of Statistics – [abs.gov.au](https://www.abs.gov.au)\
+**Attribution:** © Commonwealth of Australia (ABS), accessed 30 May 2025.\
+**Time Coverage:** 2017–2066\
+**Geographic Scope:** All Australian states and territories\
+**Collected On:** 26 May 2025
 :::
 
 #### Description of all Variables
 
 | **Variable** | **Description** |
-|------------------------------------|------------------------------------|
+|----|----|
 | `Region` | Abbreviation for each Australian state or territory (e.g., NSW, VIC, WA). |
 | `Sex` | Sex category of the projection (e.g., "Males", "Females"). |
 | `Fertility_Assumption` | Assumed fertility level used in projection (e.g., "Medium fertility"). |
 | `Mortality_Assumption` | Assumed mortality level used in projection (e.g., "Medium life expectancy"). |
 | `NOM` | Numeric value of net overseas migration scenario. |
 | `Overseas_Migration` | Assumed level of net overseas migration (e.g., "Medium NOM"). |
-| `NIM` | 	Numeric value of net interstate migration scenario. |
-| `Interstate_Migration` | 	Assumed level of net interstate migration (e.g., "Medium interstate flows"). |
+| `NIM` | Numeric value of net interstate migration scenario. |
+| `Interstate_Migration` | Assumed level of net interstate migration (e.g., "Medium interstate flows"). |
 | `Year` | Year of the population projection (2017 to 2066). |
-| `Projected_Population` | 	Estimated total population for the specified region, year, and demographics. |
+| `Projected_Population` | Estimated total population for the specified region, year, and demographics. |
 
 ## Results {#sec-results}
 
@@ -313,43 +311,36 @@ Australia’s population is projected to grow significantly over the next five d
 
 The study confirms three major takeaways:
 
-1. Sustained national growth—but at a declining rate.
+1.  Sustained national growth—but at a declining rate.
 
-2. Regional disparities in growth, with populous and economically active states growing faster.
+2.  Regional disparities in growth, with populous and economically active states growing faster.
 
-3. Critical dependency on assumptions—particularly fertility and migration rates—that shape long-term projections.
+3.  Critical dependency on assumptions—particularly fertility and migration rates—that shape long-term projections.
 
 These findings carry profound implications for urban planning, public service delivery, environmental resource management, and economic development strategies.
 
 ### Recommendation
 
-1. Targeted regional strategies: Regional differences call for differentiated planning. States like Tasmania and South Australia might need economic incentives or migration programs to stimulate growth, while high-growth areas like Victoria should prioritize housing, transport, and social infrastructure to prevent strain.
+1.  Targeted regional strategies: Regional differences call for differentiated planning. States like Tasmania and South Australia might need economic incentives or migration programs to stimulate growth, while high-growth areas like Victoria should prioritize housing, transport, and social infrastructure to prevent strain.
 
-2. Demographic monitoring & Policy adjustments: Real-time demographic data (fertility, migration trends, mortality) must be monitored closely. Adjustments to immigration quotas, family support policies, and healthcare planning can help steer population growth toward sustainable and desirable outcomes.
+2.  Demographic monitoring & Policy adjustments: Real-time demographic data (fertility, migration trends, mortality) must be monitored closely. Adjustments to immigration quotas, family support policies, and healthcare planning can help steer population growth toward sustainable and desirable outcomes.
 
-3. Policy-makers need to challenge projection assumptions: Are fertility rates likely to change due to policy or social shifts? Could unexpected migration events (e.g. geopolitical crises) alter projections? Besides, they should use comparative frameworks from other nations experiencing similar demographic transitions (e.g., Canada, the UK) to benchmark potential outcomes.
+3.  Policy-makers need to challenge projection assumptions: Are fertility rates likely to change due to policy or social shifts? Could unexpected migration events (e.g. geopolitical crises) alter projections? Besides, they should use comparative frameworks from other nations experiencing similar demographic transitions (e.g., Canada, the UK) to benchmark potential outcomes.
 
-4. Further research recommended includes: 
+4.  Further research recommended includes:
 
-- Investigate the implications of population aging in slower-growing states.
+-   Investigate the implications of population aging in slower-growing states.
 
-- Model how external shocks (e.g. pandemics, climate migration) might impact current projections.
+-   Model how external shocks (e.g. pandemics, climate migration) might impact current projections.
 
-- Study correlations between population growth and environmental impact at a regional level.
+-   Study correlations between population growth and environmental impact at a regional level.
 
 ## Reference
 
-Australian Bureau of Statistics. (2023). Population Projections, Australia, 2017 to 2066 (Data Explorer Table). Retrieved May 2025, [Access data here](https://dataexplorer.abs.gov.au/vis?tm=Population%20Projections&pg=0&hc[People]=Population%20%3E%20Population%20Projections&df[ds]=PEOPLE_TOPICS&df[id]=POP_PROJ_REGION_2012_2061&df[ag]=ABS&df[vs]=1.0.0&pd=2017%2C&dq=1%2B2%2B3%2B4%2B5%2B6%2B7%2B8.1%2B2.TT.1%2B2%2B3.1.1%2B2%2B3%2B4.1%2B2%2B3.A&ly[cl]=SEX_ABS&ly[rs]=FERTILITY%2CNOM%2CNIM&ly[rw]=TIME_PERIOD%2CREGION&to[TIME_PERIOD]=false&vw=ov)
+Australian Bureau of Statistics. (2023). Population Projections, Australia, 2017 to 2066 (Data Explorer Table). Retrieved May 2025, [Access data here](https://dataexplorer.abs.gov.au/vis?tm=Population%20Projections&pg=0&hc%5BPeople%5D=Population%20%3E%20Population%20Projections&df%5Bds%5D=PEOPLE_TOPICS&df%5Bid%5D=POP_PROJ_REGION_2012_2061&df%5Bag%5D=ABS&df%5Bvs%5D=1.0.0&pd=2017%2C&dq=1%2B2%2B3%2B4%2B5%2B6%2B7%2B8.1%2B2.TT.1%2B2%2B3.1.1%2B2%2B3%2B4.1%2B2%2B3.A&ly%5Bcl%5D=SEX_ABS&ly%5Brs%5D=FERTILITY%2CNOM%2CNIM&ly%5Brw%5D=TIME_PERIOD%2CREGION&to%5BTIME_PERIOD%5D=false&vw=ov)
 
 Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. <https://ggplot2-book.org>
-  
-Xie Y (2024). _knitr: A General-Purpose Package for Dynamic Report Generation in
-  R_. R package version 1.49, <https://yihui.org/knitr/>.
 
-Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes
-  A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J,
-  Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H
-  (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43),
-  1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
-  
+Xie Y (2024). *knitr: A General-Purpose Package for Dynamic Report Generation in R*. R package version 1.49, <https://yihui.org/knitr/>.
 
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” *Journal of Open Source Software*, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.

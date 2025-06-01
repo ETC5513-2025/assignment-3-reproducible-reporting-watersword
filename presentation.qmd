@@ -1,7 +1,7 @@
 ---
 title: "Population Projection Analysis"
 author:
-  - name: Watersword Team
+  - name: Watersword Team (Group 8)
     affiliation:
       - <>
       - Hendrickson Joewono
@@ -225,5 +225,5 @@ knitr::include_graphics("figures/fig-assumption-scenario.png")
 ## Thank You
 
 ::: notes
-
+Completed
 :::
