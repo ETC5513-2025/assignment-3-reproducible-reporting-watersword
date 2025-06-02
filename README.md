@@ -7,4 +7,6 @@ Group Members:
 * Hendrickson Joewono
 * Yusuf Romadhon
 
-Topic: 
+Project Title: Population Projection Analysis in Australia
+Report Document: analysis.pdf and analysis.qmd
+Presentation: presentation.qmd
